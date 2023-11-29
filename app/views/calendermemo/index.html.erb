@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <h2 class="section-top">
+    <span class="fas fa-dumbbell" aria-hidden="true"></span> MY トレーニングメモ 
+  </h2>
+
+  <div class="col-md-3 col-sm-12 col-xs-12">
+  <%= form_for (@memo) do |f| %>
+    <div class="field row">
+      <label for="weight">重量(kg)</label>
+      <p><%= f.text_area :menu %></p>
+      <label for="rep">回数</label>
+      <p><%= f.select :rep, [*(1..100)] %></p>
+      <label for="set">セット数</label>
+      <p><%= f.select :set, [*(1..30)] %></p>
+      <label for="start_time">トレーニング日</label>
+      <p><%= f.datetime_select :start_time %></p>
+    </div>
+    <div class="actions row">
+      <%= f.submit class: "btn btn-sm btn-hachiss" %>
+    </div>
+  <% end %>
+  </div>
+  <div class="col-md-9 col-sm-12 col-xs-12">
+    <%= month_calendar events: @user.memos do |date,memos| %>
+      <%= date.day %>
+      <% memos.each do |memo| %>
+        <div>
+          <%= link_to memo.menu, edit_memo_path(memo) %>
+        </div>
+      <% end %>
+    <% end %>
+    <table class="memo table table-bordered">
+      <thead>
+        <tr>
+          <th>トレーニング名</th>
+          <th>重量</th>
+          <th>回数</th>
+          <th>セット数</th>
+          <th>トレーニング日</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @memos.each do |user| %>
+        <tbody>
+          <tr>
+            <td><%= user.menu %></td>
+            <td><%= user.weight %>kg</td>
+            <td><%= user.rep %>rep</td>
+            <td><%= user.set %>set</td>
+            <td><%= user.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= link_to "編集" , edit_memo_path(user), :class => "btn04"  %></td>
+            <td><%= link_to "削除" , memo_path(user), method: delete , data: {confirn:"削除しますか"}, :class => "btn03" %>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+    <%= paginate @memos %>
+  </div>
+</div>
