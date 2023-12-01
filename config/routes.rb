@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
   get 'calendermemo/index'
   get 'posts/new'
   devise_for :users
