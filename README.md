@@ -1,24 +1,15 @@
-# README
+機能試作用に作成したアプリケーションです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2023/12/01
+ユーザー登録までの機能は以下の記事を参考に作成
+https://musclecoding.com/rails-practical-guide/#index_id74
 
-Things you may want to cover:
+/calendermemo/index
+以下の記事を参考に作成(うまくいかなかったため表示時エラーが出る)
+https://zenn.dev/yuma_rails/articles/00b6ea10b87ca5
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+/blogs
+/blogs/new
+/blogs/show
+以下の記事を参考に作成(/blogsのみ表示可能、ただしカレンダー形式の表示になっていない)
+https://qiita.com/isaatsu0131/items/ad1d0a6130fe4fd339d0?
